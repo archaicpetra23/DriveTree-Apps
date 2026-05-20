@@ -22,24 +22,61 @@ STORAGE_PATH = os.path.join(os.path.dirname(__file__), "..", "storage", "data.js
 # Instance BST global (singleton)
 bst = BinarySearchTree()
 
+# Data default yang akan di-seed jika storage kosong
+DEFAULT_FILES = [
+    {"name": "laporan_akhir",    "size": 2048.0,  "type": "pdf",  "created_at": "2026-05-01T08:30:00.000000+00:00"},
+    {"name": "foto_liburan",     "size": 5120.0,  "type": "jpg",  "created_at": "2026-05-02T10:15:00.000000+00:00"},
+    {"name": "presentasi_uas",   "size": 3072.0,  "type": "pptx", "created_at": "2026-05-03T14:00:00.000000+00:00"},
+    {"name": "main",             "size": 12.5,    "type": "py",   "created_at": "2026-05-04T09:45:00.000000+00:00"},
+    {"name": "database_schema",  "size": 8.2,     "type": "sql",  "created_at": "2026-05-05T11:20:00.000000+00:00"},
+    {"name": "website_mockup",   "size": 1536.0,  "type": "png",  "created_at": "2026-05-06T16:30:00.000000+00:00"},
+    {"name": "catatan_kuliah",   "size": 45.0,    "type": "txt",  "created_at": "2026-05-07T07:00:00.000000+00:00"},
+    {"name": "tugas_strukdat",   "size": 24.0,    "type": "java", "created_at": "2026-05-08T13:10:00.000000+00:00"},
+    {"name": "video_tutorial",   "size": 51200.0, "type": "mp4",  "created_at": "2026-05-09T20:00:00.000000+00:00"},
+    {"name": "playlist_coding",  "size": 8192.0,  "type": "mp3",  "created_at": "2026-05-10T15:45:00.000000+00:00"},
+    {"name": "project_backup",   "size": 10240.0, "type": "zip",  "created_at": "2026-05-11T18:30:00.000000+00:00"},
+    {"name": "index",            "size": 6.8,     "type": "html", "created_at": "2026-05-12T10:00:00.000000+00:00"},
+    {"name": "styles",           "size": 4.2,     "type": "css",  "created_at": "2026-05-12T10:05:00.000000+00:00"},
+    {"name": "config",           "size": 1.5,     "type": "json", "created_at": "2026-05-13T08:20:00.000000+00:00"},
+    {"name": "readme",           "size": 3.0,     "type": "md",   "created_at": "2026-05-14T12:00:00.000000+00:00"},
+]
+
+
+def seed_default_data():
+    """
+    Menyisipkan data default ke BST dan menyimpannya jika BST kosong.
+    Dipanggil otomatis saat startup jika tidak ada data tersimpan.
+    """
+    for file_data in DEFAULT_FILES:
+        bst.insert(file_data)
+    save_data()
+
 
 def load_data():
     """
     Memuat data dari file JSON ke BST saat startup.
+    Jika storage kosong atau tidak ada, seed data default otomatis.
 
     Time Complexity: O(n log n) dimana n = jumlah file tersimpan
     """
     global bst
     bst = BinarySearchTree()
 
+    loaded = False
     if os.path.exists(STORAGE_PATH):
         try:
             with open(STORAGE_PATH, "r") as f:
                 data = json.load(f)
-                for file_data in data.get("files", []):
+                files = data.get("files", [])
+                for file_data in files:
                     bst.insert(file_data)
+                loaded = len(files) > 0
         except (json.JSONDecodeError, IOError):
             pass
+
+    # Jika tidak ada data tersimpan, seed dengan data default
+    if not loaded:
+        seed_default_data()
 
 
 def save_data():
