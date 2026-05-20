@@ -1,10 +1,8 @@
-# 🌳 DriveTree
+# DriveTree
 
 **DriveTree** adalah aplikasi simulasi manajemen direktori file (*File Directory Manager*) yang dibangun menggunakan struktur data inti **Binary Search Tree (BST)** yang dibuat secara manual (tanpa library eksternal untuk struktur datanya). Aplikasi ini memisahkan logika *backend* dan *frontend* menggunakan arsitektur modern.
 
-![DriveTree Preview](./docs/preview.png) *(Catatan: Tambahkan gambar preview jika ada)*
-
-## 🚀 Fitur Utama
+## Fitur Utama
 
 - **Custom BST Engine:** Seluruh operasi penambahan, pencarian, dan penghapusan file menggunakan struktur data Binary Search Tree murni.
 - **Interactive Visualization:** Menampilkan bentuk Tree secara grafis dengan algoritma *In-order Layout* sehingga node tidak bertabrakan, mendukung *Zoom & Pan*.
@@ -12,7 +10,7 @@
 - **Tree Traversals:** Menjalankan operasi penelusuran (In-Order, Pre-Order, Post-Order) beserta riwayat langkah-langkahnya.
 - **Modern UI/UX:** Antarmuka bersih, mulus, dan responsif dengan micro-animations.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 DriveTree dibangun menggunakan kombinasi framework modern:
 
@@ -20,7 +18,7 @@ DriveTree dibangun menggunakan kombinasi framework modern:
 *   **Backend:** [FastAPI](https://fastapi.tiangolo.com/) (Python), Uvicorn
 *   **Storage:** Local JSON file untuk persistensi data secara sederhana
 
-## 📂 Struktur Repositori
+## Struktur Repositori
 
 Proyek ini dibagi menjadi dua bagian utama:
 
@@ -29,7 +27,7 @@ Proyek ini dibagi menjadi dua bagian utama:
 
 Silakan klik masing-masing tautan di atas untuk melihat instruksi instalasi dan penjelasan mendalam untuk setiap bagian.
 
-## 🏃‍♂️ Cara Menjalankan Proyek (Quick Start)
+## Cara Menjalankan Proyek (Quick Start)
 
 Untuk menjalankan seluruh aplikasi secara lokal, ikuti langkah-langkah berikut:
 
@@ -53,5 +51,5 @@ npm run dev
 ```
 *Aplikasi web sekarang dapat diakses di `http://localhost:3000`*
 
-## 📝 Lisensi
+## Lisensi
 Dibuat sebagai bagian dari Final Project / Tugas Data Structures.
