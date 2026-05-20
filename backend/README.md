@@ -20,11 +20,12 @@ Base URL: `http://localhost:8000`
 |---|---|---|
 | `GET` | `/api/files` | Mengambil seluruh node secara berurutan (In-order traversal). |
 | `POST` | `/api/files` | Menambahkan file baru ke dalam tree. |
-| `GET` | `/api/files/search/{filename}` | Mencari node file beserta jejak/rute perjalanannya. |
-| `DELETE` | `/api/files/{filename}` | Menghapus sebuah file dari tree. |
-| `GET` | `/api/tree` | Mendapatkan seluruh struktur tree rekursif (untuk dirender menjadi grafik). |
-| `GET` | `/api/tree/stats` | Mendapatkan statistik pohon (tingkat/kedalaman, jumlah file, ukuran total). |
-| `GET` | `/api/tree/traverse/{type}` | Menjalankan traversal (inorder/preorder/postorder) dan mencatat urutannya. |
+| `GET` | `/api/files/search?name={filename}` | Mencari node file berdasarkan nama beserta jejak/rute perjalanannya. |
+| `GET` | `/api/files/tree` | Mendapatkan seluruh struktur tree rekursif (untuk dirender menjadi grafik). |
+| `GET` | `/api/files/stats` | Mendapatkan statistik pohon (tingkat/kedalaman, jumlah file, ukuran total, dst.). |
+| `GET` | `/api/files/traversal/{traversal_type}` | Menjalankan traversal (`inorder`/`preorder`/`postorder`) dan mencatat urutannya. |
+| `DELETE` | `/api/files/{filename}` | Menghapus sebuah file dari tree berdasarkan nama. |
+| `DELETE` | `/api/files` | Menghapus semua file dari tree. |
 
 ## 📦 Instalasi & Menjalankan Server
 

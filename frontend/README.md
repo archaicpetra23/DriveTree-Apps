@@ -34,6 +34,6 @@ Sebagian besar tampilan logika diatur di dalam `src/components/`:
    ```bash
    npm run dev
    ```
-5. Buka `http://localhost:3000` di *browser* Anda.
+5. Buka `http://localhost:3000` (atau `http://localhost:3001` jika port 3000 terpakai) di *browser* Anda.
 
-> **Peringatan:** Agar seluruh fungsionalitas berjalan normal, pastikan server FastAPI (Backend) juga sedang berjalan di `http://localhost:8000`. Jika port berbeda, pastikan Anda mengubah pengaturan API URL di dalam file konfigurasi atau helper Axios.
+> **Peringatan:** Agar seluruh fungsionalitas berjalan normal, pastikan server FastAPI (Backend) juga sedang berjalan di `http://localhost:8000`. Jika port berbeda, pastikan Anda mengubah pengaturan API URL di dalam file konfigurasi atau helper. Backend telah dikonfigurasi secara default untuk menerima request CORS dari port `3000` dan `3001`.
